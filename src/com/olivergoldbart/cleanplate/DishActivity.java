@@ -62,7 +62,8 @@ public class DishActivity extends Activity {
         String oldDishID = (String) oldIntent.getStringExtra("dishID");
         Boolean sameMenuCheck = oldIntent.getExtras().getBoolean("sameMenu");
 		arrayList = oldIntent.getCharSequenceArrayListExtra("arrayList");
-		Log.v("testcat", "testcat " + arrayList.toString());
+		
+		Log.v("testcat", "testcat " + oldDishID + ", " + arrayList.toString());
         
         String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/dish/" + oldDishID + "/randomOther";
         
