@@ -9,8 +9,10 @@ package com.olivergoldbart.cleanplate;
 
 public final class R {
     public static final class anim {
-        public static final int anim_in=0x7f040000;
-        public static final int anim_out=0x7f040001;
+        public static final int dish_anim_in=0x7f040000;
+        public static final int dish_anim_out=0x7f040001;
+        public static final int main_anim_in=0x7f040002;
+        public static final int main_anim_out=0x7f040003;
     }
     public static final class attr {
     }

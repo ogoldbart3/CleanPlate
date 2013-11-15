@@ -46,7 +46,7 @@ public class DishActivity extends Activity {
         setContentView(R.layout.activity_dish);
         
         //Manually makes the app slide in from right
-        overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+    //	overridePendingTransition(R.anim.dish_anim_in,R.anim.dish_anim_out);
 		
         //Intents are like bundles containing app data
         //that can be passed between activities
@@ -54,14 +54,18 @@ public class DishActivity extends Activity {
         //current activity we are in, so we can get the 
         //data the last activity is giving to us
         Intent oldIntent = getIntent();
-        
+        Boolean goDirectly = oldIntent.getExtras().getBoolean("goDirectly");
+        if ( goDirectly ) {
+            overridePendingTransition(R.anim.main_anim_in,R.anim.main_anim_out);
+        } else if ( !goDirectly ) {
+            overridePendingTransition(R.anim.dish_anim_in,R.anim.dish_anim_out);
+        }
         
         //here we are pulling data using getExtras() and
         //setting their current variables in this activity
         //to what the old activity had "saved" them as
         String oldDishID = (String) oldIntent.getStringExtra("dishID");
         Boolean sameMenuCheck = oldIntent.getExtras().getBoolean("sameMenu");
-        Boolean goDirectly = oldIntent.getExtras().getBoolean("goDirectly");
 		arrayList = oldIntent.getCharSequenceArrayListExtra("arrayList");
 		
 		Log.v("testcat", "testcat " + oldDishID + ", " + arrayList.toString());
@@ -182,21 +186,30 @@ public class DishActivity extends Activity {
 	
 	public void previousDish( View view ) {
 		
-		//TextView dishID = (TextView)findViewById(R.id.dishID);
-	    currentDishID = (String) arrayList.remove(0);
-		
-		Intent intent = new Intent();
+		if ( arrayList.size() == 0 ) {
+			Intent intent = new Intent();
+			
+			intent.setClass(DishActivity.this, MainActivity.class);
 
-		intent.putExtra("dishID", currentDishID);
-		intent.putExtra("sameMenu", true);
-		intent.putExtra("goDirectly", true);
-		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
-		
-		intent.setClass(DishActivity.this, DishActivity.class);
-
-		startActivity(intent);
-		finish();
-
+			startActivity(intent);
+			finish();
+			
+		} else {
+			
+			currentDishID = (String) arrayList.remove(0);
+			
+			Intent intent = new Intent();
+	
+			intent.putExtra("dishID", currentDishID);
+			intent.putExtra("sameMenu", true);
+			intent.putExtra("goDirectly", true);
+			intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+			
+			intent.setClass(DishActivity.this, DishActivity.class);
+	
+			startActivity(intent);
+			finish();
+		}
 	}
 }
  
