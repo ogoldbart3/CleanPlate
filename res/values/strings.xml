@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CleanPlate</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="random_dish_button">New random dish</string>
+    <string name="random_dish_same_menu_button">New dish from menu</string>
+
+</resources>
