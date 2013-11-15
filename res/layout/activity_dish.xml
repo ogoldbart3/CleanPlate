@@ -54,7 +54,12 @@
         android:onClick="randomDishSameMenu"
         android:text="@string/random_dish_same_menu_button" />
 
-   
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="previousDish"
+        android:text="@string/prev_dish" />
 
     <ImageView
         android:id="@+id/imageView1"

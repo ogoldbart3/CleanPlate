@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="random_dish_button">New random dish</string>
     <string name="random_dish_same_menu_button">New dish from menu</string>
+    <string name="prev_dish">Previous Dish</string>
 
 </resources>

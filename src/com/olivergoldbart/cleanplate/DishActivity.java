@@ -61,14 +61,24 @@ public class DishActivity extends Activity {
         //to what the old activity had "saved" them as
         String oldDishID = (String) oldIntent.getStringExtra("dishID");
         Boolean sameMenuCheck = oldIntent.getExtras().getBoolean("sameMenu");
+        Boolean goDirectly = oldIntent.getExtras().getBoolean("goDirectly");
 		arrayList = oldIntent.getCharSequenceArrayListExtra("arrayList");
 		
 		Log.v("testcat", "testcat " + oldDishID + ", " + arrayList.toString());
         
-        String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/dish/" + oldDishID + "/randomOther";
+        String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/";
+                
+        url += "dish/" + oldDishID;
         
-        if ( sameMenuCheck ) {
-        	url += "SameMenu";
+        if ( goDirectly ) {
+        	
+        }
+        else if ( !goDirectly ) {
+        	url += "/randomOther";
+            if ( sameMenuCheck ) {
+            	url += "SameMenu";
+            }
+            
         }
 		AsyncHttpClient client = new AsyncHttpClient();
 		
@@ -138,6 +148,7 @@ public class DishActivity extends Activity {
 
 		intent.putExtra("dishID", currentDishID);
 		intent.putExtra("sameMenu", false);
+		intent.putExtra("goDirectly", false);
 		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
 		
 		intent.setClass(DishActivity.this, DishActivity.class);
@@ -148,7 +159,7 @@ public class DishActivity extends Activity {
 
 	}
 	
-public void randomDishSameMenu( View view ) {
+	public void randomDishSameMenu( View view ) {
 		
 		TextView dishID = (TextView)findViewById(R.id.dishID);
 	    currentDishID = dishID.getText().toString();
@@ -159,6 +170,26 @@ public void randomDishSameMenu( View view ) {
 
 		intent.putExtra("dishID", currentDishID);
 		intent.putExtra("sameMenu", true);
+		intent.putExtra("goDirectly", false);
+		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+		
+		intent.setClass(DishActivity.this, DishActivity.class);
+
+		startActivity(intent);
+		finish();
+
+	}
+	
+	public void previousDish( View view ) {
+		
+		//TextView dishID = (TextView)findViewById(R.id.dishID);
+	    currentDishID = (String) arrayList.remove(0);
+		
+		Intent intent = new Intent();
+
+		intent.putExtra("dishID", currentDishID);
+		intent.putExtra("sameMenu", true);
+		intent.putExtra("goDirectly", true);
 		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
 		
 		intent.setClass(DishActivity.this, DishActivity.class);
