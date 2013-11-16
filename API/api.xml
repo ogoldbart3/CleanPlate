@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<api>
+	<description>
+		<![CDATA[This is an API to interact with Everything db]]>
+	</description>
+
+	<!--RESTAURANTS-->
+	<command id="restaurant" security="public">
+		<description><![CDATA[This simple API lets you add and remove restaurants]]></description>
+		
+		<index>
+			<description><![CDATA[This is how you can get a listing of all restaurants]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[listRestaurants();]]></action>
+		</index>
+		
+		<get>
+			<description><![CDATA[This is how you can get a specific restaurant]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[getRestaurant($_REST["restaurant"]);]]></action>
+		</get>
+	
+		<command id="foodmenu" security="public">
+	        <index>
+	            <description><![CDATA[This is how you can get a listing of all foodmenus for a restaurant]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[listRestaurantFoodmenus($_REST["restaurant"]);]]></action>
+	        </index>
+
+	        <get>
+	            <description><![CDATA[This is how you can get details on a specific restaurant foodmenu]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[getRestaurantFoodmenu($_REST["restaurant"],$_REST["restaurant/foodmenu"]);]]></action>
+	        </get>
+	    </command>
+	</command>
+
+	<!--Foodmenu-->
+	<command id="foodmenu" security="public">
+		<description><![CDATA[This simple API lets you add and remove foodmenu]]></description>
+		
+		<index>
+			<description><![CDATA[This is how you can get a listing of all foodmenus]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[listFoodmenus();]]></action>
+		</index>
+		
+		<get>
+			<description><![CDATA[This is how you can get a specific foodmenu]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[getFoodmenu($_REST["foodmenu"]);]]></action>
+		</get>
+	
+		<command id="dish" security="public">
+	        <index>
+	            <description><![CDATA[This is how you can get a listing of all dishes for a foodmenu]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[listFoodmenuDishes($_REST["foodmenu"]);]]></action>
+	        </index>
+
+	        <get>
+	            <description><![CDATA[This is how you can get details on a specific foodmenu dish]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[getFoodmenuDish($_REST["foodmenu"],$_REST["foodmenu/dish"]);]]></action>
+	        </get>
+	    </command>
+	</command>
+
+
+	<!--Dishes-->
+	<command id="dish" security="public">
+		<description><![CDATA[This simple API lets you add and remove dishes]]></description>
+		
+		<index>
+			<description><![CDATA[This is how you can get a listing of all dishes]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[listDishes();]]></action>
+		</index>
+		
+		<get>
+			<description><![CDATA[This is how you can get a specific dish]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[getDish($_REST["dish"]);]]></action>
+		</get>
+
+		<command id="randomOtherSameMenu" security="public">
+	        <index>
+	            <description><![CDATA[This is how you can get random other dish on the same menu as the given dish]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[getRandomOtherDishFromMenu($_REST["dish"]);]]></action>
+	        </index>
+	    </command>
+
+	    <command id="randomOther" security="public">
+	        <index>
+	            <description><![CDATA[This is how you can get random other dish]]></description>
+	            
+	            <action file="api/cleanplate.php"><![CDATA[getRandomOtherDish($_REST["dish"]);]]></action>
+	        </index>
+	    </command>
+
+	
+	</command>
+
+	<command id="randomDish" security="public">
+	    
+		<description><![CDATA[This simple API lets you add and remove dishes]]></description>
+		
+		<index>
+			<description><![CDATA[This is how you can get a listing of all dishes]]></description>
+			
+			<action file="api/cleanplate.php"><![CDATA[getRandomDish();]]></action>
+		</index>
+	
+	</command>
+	
+
+
+	<!--PANORAMAS-->
+	<!--<command id="panorama" security="public">
+		<description><![CDATA[This simple API lets you add and remove panoramas]]></description>
+		
+		<index>
+			<description><![CDATA[This is how you can get a listing of all panoramas]]></description>
+			
+			<action file="api/cteditor.php"><![CDATA[listPanoramas(isFullRecordType());]]></action>
+		</index>
+		
+		<get>
+			<description><![CDATA[This is how you can get a specific panorama]]></description>
+			
+			<action file="api/cteditor.php"><![CDATA[getPanorama($_REST["panorama"]);]]></action>
+		</get>
+		
+        <command id="prev" security="public">
+            <index>
+                <description><![CDATA[This is how you can get the previous panorama]]></description>
+                
+                <action file="api/cteditor.php"><![CDATA[getPrevPanorama($_REST["panorama"]);]]></action>
+            </index>
+        </command>
+        
+        <command id="next" security="public">
+            <index>
+                <description><![CDATA[This is how you can get the next panorama]]></description>
+                
+                <action file="api/cteditor.php"><![CDATA[getNextPanorama($_REST["panorama"]);]]></action>
+            </index>
+        </command>
+		
+		<post>
+			<description><![CDATA[This is how you can create a panorama]]></description>
+			
+			<action file="api/cteditor.php"><![CDATA[addPanorama($_POST["title"],$_POST["description"],$_POST["latitude"],$_POST["longitude"],$_POST["altitude"],$_POST["heading"],$_POST["tilt"],$_POST["roll"],$_FILES["userFiles"], 8);]]></action>
+		</post>
+		
+		<put>
+			<description><![CDATA[This is how you can update a panorama]]></description>
+			
+			<action file="api/cteditor.php"><![CDATA[updatePanorama($_REST["panorama"],$_POST["title"],$_POST["latitude"],$_POST["longitude"],$_POST["altitude"],$_POST["heading"],$_POST["tilt"],$_POST["roll"], $_POST["description"]);]]></action>
+		</put>
+		
+		<delete>
+			<description><![CDATA[This is how you can delete a panorama]]></description>
+			
+			<action file="api/cteditor.php"><![CDATA[deletePanorama($_REST["panorama"]);]]></action>
+		</delete>
+	</command>-->
+</api>

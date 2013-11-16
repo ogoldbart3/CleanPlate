@@ -1,0 +1,52 @@
+[23-Oct-2013 23:00:44 UTC] PHP Notice:  Use of undefined constant console - assumed 'console' in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 2
+[23-Oct-2013 23:00:44 UTC] PHP Warning:  log() expects parameter 1 to be double, string given in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 2
+[23-Oct-2013 23:00:44 UTC] PHP Notice:  Use of undefined constant console - assumed 'console' in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 4
+[23-Oct-2013 23:00:44 UTC] PHP Warning:  log() expects parameter 1 to be double, string given in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 4
+[23-Oct-2013 23:00:44 UTC] PHP Fatal error:  Call to undefined function getDBResultsArray() in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 6
+//
+[23-Oct-2013 23:03:59 UTC] PHP Fatal error:  Call to undefined function getDBResultsArray() in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 6
+//
+
+[23-Oct-2013 23:08:02 UTC] test
+[23-Oct-2013 23:08:02 UTC] PHP Fatal error:  Call to undefined function getDBResultsArray() in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 7
+[23-Oct-2013 23:08:05 UTC] test
+[23-Oct-2013 23:08:05 UTC] PHP Fatal error:  Call to undefined function getDBResultsArray() in /home/ogoldbart3/gtmob/Gourmette/API/restaurant.php on line 7
+[23-Oct-2013 23:09:18 UTC] PHP Notice:  Undefined variable: db_username in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 6
+[23-Oct-2013 23:10:01 UTC] PHP Warning:  mysql_connect(): [2002] Operation now in progress (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[23-Oct-2013 23:10:01 UTC] PHP Warning:  mysql_connect(): Operation now in progress in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:24:22 UTC] PHP Notice:  Undefined variable: db_username in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 6
+[24-Oct-2013 17:25:22 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:25:22 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:27:06 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/ogoldbart3/gtmob/Gourmette/API/db_credentials.php on line 4
+[24-Oct-2013 17:27:07 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/ogoldbart3/gtmob/Gourmette/API/db_credentials.php on line 4
+
+
+
+[24-Oct-2013 17:28:12 UTC] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/ogoldbart3/gtmob/Gourmette/API/db_credentials.php on line 4
+[24-Oct-2013 17:30:02 UTC] PHP Warning:  mysql_connect(): [2002] Operation now in progress (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:30:02 UTC] PHP Warning:  mysql_connect(): Operation now in progress in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:38:06 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:38:06 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:39:06 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:39:06 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:39:19 UTC] test
+
+
+//
+
+[24-Oct-2013 17:41:53 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:41:53 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:41:53 UTC] test
+[24-Oct-2013 17:45:58 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:45:58 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:45:58 UTC] test
+[24-Oct-2013 17:59:02 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:59:02 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 17:59:02 UTC] test
+[24-Oct-2013 18:32:59 UTC] PHP Warning:  mysql_connect(): [2002] Connection timed out (trying to connect via tcp://dpr.nimbus.cip.gatech.edu:3306) in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 18:32:59 UTC] PHP Warning:  mysql_connect(): Connection timed out in /home/ogoldbart3/gtmob/Gourmette/API/db_helper.php on line 8
+[24-Oct-2013 18:32:59 UTC] test
+[24-Oct-2013 18:48:02 UTC] PHP Warning:  Unknown: failed to open stream: No such file or directory in Unknown on line 0
+[24-Oct-2013 19:01:26 UTC] PHP Warning:  Unknown: failed to open stream: No such file or directory in Unknown on line 0
+[24-Oct-2013 19:02:57 UTC] PHP Warning:  Unknown: failed to open stream: No such file or directory in Unknown on line 0
+[24-Oct-2013 19:02:58 UTC] PHP Warning:  Unknown: failed to open stream: No such file or directory in Unknown on line 0

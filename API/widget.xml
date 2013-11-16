@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding = "utf-8" ?>
+<widget title="CleanPlate" security="disabled" appcache="enabled">
+    <library name="jquery"/>
+    <library name="jquery.tmpl"/> 
+    <library name="jquery.url"/> 
+   	
+	<!--<javascript file="editor/cleanplate.js"/>
+	<javascript file="editor/cleanplate.restaurant.js"/>-->
+    <javascript file="editor/test.js"/>
+	
+    <library name="jquery.mobile"/> 
+    <library name="gtmob"/>
+	<manifest>
+        <text>
+<![CDATA[
+NETWORK:
+*
+]]>
+        </text>
+    </manifest>
+</widget>
