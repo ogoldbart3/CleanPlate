@@ -50,6 +50,13 @@
 			
 			<action file="api/cleanplate.php"><![CDATA[getFoodmenu($_REST["foodmenu"]);]]></action>
 		</get>
+
+		<post>
+			<description><![CDATA[This is how you can create a foodmenu]]></description>
+			<action file="api/cleanplate.php">
+				<![CDATA[addFoodmenu($_POST["foodmenu_start"],$_POST["foodmenu_end"],$_POST["foodmenu_days"]);]]>
+			</action>
+		</post>
 	
 		<command id="dish" security="public">
 	        <index>
@@ -64,6 +71,19 @@
 	            <action file="api/cleanplate.php"><![CDATA[getFoodmenuDish($_REST["foodmenu"],$_REST["foodmenu/dish"]);]]></action>
 	        </get>
 	    </command>
+	</command>
+
+	<command id="foodmenu_dish" security="public">
+		<description><![CDATA[This simple API lets you add and remove foodmenu_dish]]></description>
+		
+
+		<post>
+			<description><![CDATA[This is how you can create a foodmenudish]]></description>
+			<action file="api/cleanplate.php">
+				<![CDATA[addFoodmenuDish($_POST["foodmenu_id"],$_POST["dish_id"]);]]>
+			</action>
+		</post>
+	
 	</command>
 
 

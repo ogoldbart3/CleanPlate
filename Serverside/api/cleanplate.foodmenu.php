@@ -25,6 +25,21 @@
 		echo json_encode($result);
 	}
 
+	function addFoodmenu($foodmenu_start, $foodmenu_end, $foodmenu_days) {
+		$dbQuery = sprintf("INSERT INTO `foodmenus` (`foodmenu_start`,`foodmenu_end`,`foodmenu_days` ) VALUES ('%s','%s','%s')",
+			mysql_real_escape_string($foodmenu_start),
+			mysql_real_escape_string($foodmenu_end),
+			mysql_real_escape_string($foodmenu_days)
+		);
+		$result = getDBResultInserted($dbQuery,'foodmenu_id');
+		//header("Content-type: application/json");
+		echo json_encode($result);
+	}
+
+/************************************************************************************************************************************************/
+
+
+
 	function listFoodmenuDishes($foodmenu_id) {
 		$dbQuery = sprintf("SELECT 	`dishes`.`dish_id`,
 									`dishes`.`dish_name`,
@@ -58,5 +73,16 @@
 		//header('Content-type: application/json');
 		echo json_encode($result);
 	}
+
+	function addFoodmenuDish($foodmenu_id, $dish_id) {
+		$dbQuery = sprintf("INSERT INTO `foodmenu_dishes` (`foodmenu_id`,`dish_id` ) VALUES ('%s','%s')",
+			mysql_real_escape_string($foodmenu_id),
+			mysql_real_escape_string($dish_id)
+		);
+		$result = getDBResultInserted($dbQuery,'foodmenu_id');
+		//header("Content-type: application/json");
+		echo json_encode($result);
+	}
+
 
 ?>
