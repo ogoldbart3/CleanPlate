@@ -31,6 +31,20 @@
 		echo json_encode($result);
 	}
 
+	function addDish($dish_name, $dish_description, $dish_price, $dish_image_url) {
+		$dbQuery = sprintf("INSERT INTO `dishes` (`dish_name`,`dish_description`,`dish_price`,`dish_image_url` ) VALUES ('%s','%s','%s','%s')",
+			mysql_real_escape_string($dish_name),
+			mysql_real_escape_string($dish_description),
+			mysql_real_escape_string($dish_price),
+			mysql_real_escape_string($dish_image_url)
+		);
+		$result = getDBResultInserted($dbQuery,'dish_id');
+		//header("Content-type: application/json");
+		echo json_encode($result);
+	}
+
+
+
 	function getRandomDish() {
 		$dbQuery = "SELECT 	`dishes`.`dish_id`,
 							`dishes`.`dish_name`,

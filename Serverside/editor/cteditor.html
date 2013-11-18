@@ -1,0 +1,90 @@
+<div data-role="page" id="list_option_page" class="cteditor_page">
+	<div class="container">
+		
+		        <ul class="nav nav-pills">	      
+		        </ul> 
+
+	    <div id="homepage_intro" class="span12">
+		    <h2>Campus Tour Editor</h2>
+        	<p>Create your own custom Augmented Reality tour around Georgia Tech </p>
+	   	</div>
+		
+		<div id="list_option_page_content" class="span12">
+	       <ul class="thumbnails span7" id="role_category">
+				<li class="span4">
+		          <div class="view">
+		            <a href="#list_tour_page" data-transition="slide">
+		            <img src="editor/images/ctdesigner.png">
+		            </a>
+		            <h2>Designers (Anyone)</h2>
+		            <p>Create your unique tour through Georgia Tech’s campus that you can experience as a walking tour or remotely from an iPad.</p>    
+		          </div>
+		        </li>          
+	        
+				<li class="span4">
+		          <div class="view">
+		            <a href="#curator_page" data-transition="slide">
+		            <img src="editor/images/ctcurator.png" >
+		            </a>
+		            <h2>Curators (Admins)</h2>
+		            <p>Upload new high definition panoramas and create new points of interesting about Georgia Tech.</p>
+		          </div>
+		        </li>         
+	        </ul>
+		</div>
+	</div>
+</div>
+<!---****** Curator Page *************************-->
+  <div id="curator_page" class="cteditor_page" data-role="page"> 
+      <div class="span9">
+        <ul class="nav nav-pills">
+        </ul>
+      </div> 
+
+    <div id="curator_task" class="container">
+      <ul class="thumbnails span9" id="task_category">
+        <li class="span4">
+          <div class="view">
+            <a href="#list_panorama_page" data-transition="slide">
+            <img src="editor/images/panoroma.png">
+            </a>
+            <h2>Panoramas</h2>
+            <p>Add six cubed faced images to create a new panorama or edit the images or information of existing panoramas.</p>
+          </div>
+        </li>
+
+        <li class="span4">
+          <div class="view">
+            <a href="#list_poi_page" data-transition="slide">
+            <img src="editor/images/poi.png" >
+            </a>
+            <h2>Points of Interest</h2>
+            <p>Create new points of interest with text, images and videos to provide users with information about the tour and what is in the panoramas.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="span9" id="curator_help">
+        <p>The Campus Tour app is an Argon channel that provides and augmented reality experience of Georgia Tech's campus.It gives information to users through text, pictures and videos while they take the tour either around campus or from any location they desire. As a curator, you can upload new panoramas and create new points of interest for the designers to add to a tour.</p>
+      </div>
+    </div>
+  </div>
+
+<!--***************************************************************-->
+<div data-role="dialog" id="error_dialog" >
+	<div data-role="header" data-position="inline" data-theme='d'>
+        <h1>Error</h1>
+    </div>
+	<div id="error_dialog_content" data-role="content">
+		<script id="error_message_template" type="text/x-jquery-tmpl">
+			<div id="error_message">
+				<div style="text-align: center;">
+					<p>	An unexpected error occurred<br />
+						<span id="errorName">${errorName}</span><br />
+						<span id="errorDescription">${errorDescription}</span>
+					</p>
+				</div>
+			</div>
+		</script>
+	</div><!-- /content -->
+</div><!-- /dialog -->

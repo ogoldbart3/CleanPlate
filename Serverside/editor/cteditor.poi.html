@@ -1,0 +1,118 @@
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="edit_poi_page">
+	<div data-role="header" data-position="inline" data-theme='d'>
+		<a data-direction="reverse" data-icon="back" data-rel="back" data-theme="d">Cancel</a>
+        <h1 class='head_title'>Edit Spot</h1>
+        <a id="spot_save_button" data-icon="plus" data-theme="d">Save</a>
+    </div>
+	<div id="edit_poi_content" data-role="content">
+		<div class="spot_form">
+            <label for="edit_poi_name">Name</label>
+            <textarea rows="8" id="edit_poi_name" name="edit_poi_name"></textarea>
+            <label for="edit_poi_base">Base</label>
+			<textarea rows="8" id="edit_poi_base" name="edit_poi_base"></textarea>
+            <label for="edit_poi_history">History</label>
+            <textarea rows="8" id="edit_poi_history" name="edit_poi_history"></textarea>
+            <label for="edit_poi_campuslife">Campus Life</label>
+            <textarea rows="8" id="edit_poi_campuslife" name="edit_poi_campuslife"></textarea>
+        </div>
+		        
+        <ul id="spot_photo_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="b" data-split-icon="delete" data-split-theme="d">
+			<a id='spot_add_photo_button' data-role='button' data-inline="true" data-icon="add">Add</a>
+			<script id="spot_photo_list_row_template" type="text/x-jquery-tmpl">
+				<li class="spot_photo_list_row">
+                    <a class="spot_photo_list_row_button" href="#list_spotphoto_page&spot_id=${spotid}&photo_id=${photoid}">
+                        <h1>${photoid}</h1>
+                    </a>
+                    <a class="spot_photo_list_row_delete_button"/>
+				</li>
+			</script>
+        </ul>
+    </div>
+</div>
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="list_spotphoto_page">
+    <div data-role='header' data-position='inline' data-theme='d'>
+	    <h1>Spot Photo Page</h1>
+        <a href="#edit_poi_page" data-direction="reverse" data-icon="back" data-theme="d">Cancel</a>
+    </div>
+        <div class="edit_spotphoto_images">
+                <img class="edit_spotphoto_image" id="edit_spotphoto_image" src=""/>
+        </div>
+</div>
+
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="list_poi_page">
+    <div data-role='header' data-position='inline' data-theme='d'>
+	    <h1>Spot List</h1>
+        <a href="#list_option_page" data-direction="reverse" data-icon="back" data-theme="d">Cancel</a>
+    </div>
+	<div id="list_poi_page_content" data-role="content">
+		<ul id="spot_list" data-role="listview" data-inset="true" data-filter="true" data-theme="c" data-divider-theme="b">
+			<script id="spot_list_row_template" type="text/x-jquery-tmpl">
+				<li class="spot_list_row" id="spot_${spotid}">
+					<a href='#edit_poi_page&spot_id=${spotid}' data-transition="slide">
+						<h1>${name}</h1>
+					</a>
+				</li>
+			</script>
+		</ul>
+	</div>
+</div>
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="edit_box_page">
+	<div data-role="header" data-position="inline" data-theme='d'>
+		<a data-direction="reverse" data-icon="back" data-rel="back" data-theme="d">Cancel</a>
+        <h1 class='head_title'>Edit Box</h1>
+        <a id="box_save_button" data-icon="plus" data-theme="d">Save</a>
+    </div>
+	<div id="edit_box_content" data-role="content">
+		<div class="spot_form">
+            <label for="edit_box_title">Title</label>
+            <textarea rows="8" id="edit_box_title" name="edit_box_title"></textarea>
+            <label for="edit_box_boxid">Boxid</label>
+            <textarea rows="8" id="edit_box_boxid" name="edit_box_boxid"></textarea>
+            <label for="edit_box_spotid">Spotid</label>
+			<textarea rows="8" id="edit_box_spotid" name="edit_box_spotid"></textarea>
+            <label for="edit_box_tourid">Tourid</label>
+            <textarea rows="8" id="edit_box_tourid" name="edit_box_tourid"></textarea>
+            <label for="edit_box_latitude">Latitude</label>
+            <textarea rows="8" id="edit_box_latitude" name="edit_box_latitude"></textarea>
+            <label for="edit_box_longitude">Longitude</label>
+            <textarea rows="8" id="edit_box_longitude" name="edit_box_longitude"></textarea>
+            <label for="edit_box_altitude">Altitude</label>
+            <textarea rows="8" id="edit_box_altitude" name="edit_box_altitude"></textarea>
+            <label for="edit_box_heading">Heading</label>
+            <textarea rows="8" id="edit_box_heading" name="edit_box_heading"></textarea>
+            <label for="edit_box_tilt">Tilt</label>
+            <textarea rows="8" id="edit_box_tilt" name="edit_box_tilt"></textarea>
+            <label for="edit_box_roll">Roll</label>
+            <textarea rows="8" id="edit_box_roll" name="edit_box_roll"></textarea>
+        </div>
+    </div>
+</div>
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="add_spotphoto_page">
+	<div data-role="header" data-position="inline" data-theme='d'>
+		<a href="#edit_poi_page" data-direction="reverse" data-icon="back" data-theme="d">Cancel</a>
+        <h1 class='head_title'>Add photo</h1>
+    </div>
+    <div data-role="content" data-ajax="false" class="ui-body ui-body-b ui-corner-all">
+		<div style="text-align: center;">
+			<div data-ajax="false" class="ui-body ui-body-b ui-corner-all">
+				<table>
+					<tr>        
+						<td>Photo </td><td class="field"><input type="file" name="s_userFiles[]" id="s_file" class="accept-gif|jpg|png|swf"/>
+						<td> 
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="ui-body ui-body-b">
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a"><button id="add_spotphoto_button" data-theme="b">Add</button></div>
+			<div class="ui-block-b"><button id="spot_reset" data-theme="d">Reset</button></div>
+		</fieldset>
+	</div>
+</div>

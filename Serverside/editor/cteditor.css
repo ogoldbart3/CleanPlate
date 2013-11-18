@@ -1,0 +1,531 @@
+.comment_form{
+	width: 100%;
+}
+.comment_form textarea{
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+.edit_panorama_images{
+	left: 10px;
+	right: 10px;
+}
+
+.edit_panorama_image_face{
+	width: 33%;
+}
+
+.show_panorama_image_face{
+	width: 33%;
+}
+
+/***************************/
+
+a {
+  color: #fff;
+  text-decoration:none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden; 
+}
+a:hover {
+    color: #4067A4;
+    text-decoration: none; 
+}
+
+.form-horizontal .control-group {
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+
+label.ui-input-text{
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 1px 1px rgb(0,0,0);
+}
+
+.ui-link {
+color: rgb(252, 252, 252) !important;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+	margin:0px !important;
+}
+/******** HOME PAGE ********/
+.nav-pills{
+	height: 50px;
+}
+#edit_panorama_poi_page,#list_tour_panorama_poi_info_page, #list_tour_panorama_pois_page, #list_option_page, #curator_page, #list_panorama_page, #add_panorama_page, #edit_panorama_page, #list_tour_page, #list_tour_panoramas_page{
+	font-family: 'Roboto', sans-serif;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: 0em;
+	word-spacing: 0em;
+	background: #4A5767;
+	background-image: url(images/fabric_of_squares_gray.png);
+}
+
+#list_option_page .container{
+	background-color: #6295CF;
+	height: 100%;
+}
+
+#homepage_intro{
+	border-top: 2px solid #6295CF;
+	border-bottom: 2px solid #6295CF;
+	margin-left: 0px;
+	position: absolute;
+	text-align: center;
+	height: 300px;
+	background-color: black;
+	top: 70px;
+	background-image: url(images/homepage_bcg.png);
+}
+#homepage_intro h2{
+	color: white;
+	margin-top: 80px;
+	font-family: 'Lobster', cursive;
+	font-size: 32px;
+	text-shadow: 2px 2px 10px rgb(12, 12, 12);
+}
+#homepage_intro p{
+	text-shadow: 1px 2px 6px rgb(255, 252, 252);
+	font-size: 20px;
+	margin-top: 40px;
+	color: rgb(44, 44, 44);
+	font-weight: 400;
+}
+#list_option_page_content{
+	background-color: #6295CF;
+	background-image: url(images/agsquare1.png);
+	position: absolute;
+	top: 374px;
+	margin-left: 0px;
+	bottom: 0px;
+	min-height: 420px;
+}
+#list_option_page_content ul{
+	display: table;
+	text-align: center;
+}
+
+#list_option_page_content li{
+	width: 270px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#role_category{
+	margin: 40px auto;
+	float: none;
+}
+
+#role_category p{
+padding: 10px;
+text-align: left;
+font-style: normal;
+line-height: 1.5;
+text-shadow: 1px 2px 6px rgb(255, 252, 252);
+font-size: 14px;
+color: rgb(0, 0, 0);
+font-weight: 400;
+}
+
+#role_category h2{
+	
+	padding: 10px 10px 0px 10px;
+text-align: center;
+font-style: normal;
+line-height: 1.5;
+text-shadow: 1px 2px 6px rgb(255, 252, 252);
+font-size: 16px;
+color: rgb(0, 0, 0);
+font-weight: 400;
+}
+.view {
+margin: 0px auto;
+color: #ffffff;
+width: 205px;
+height: 205px;
+border-radius: 6px;
+outline: 1px dashed #6295CF;
+outline-offset: -7px;
+background-color: rgb(119, 180, 131);
+}
+.view img{
+	margin-top: 15px;
+	width: 140px;
+}
+
+/********* Curator Page *********/
+#curator_page{
+	margin: 0px auto;
+	position: absolute;
+}
+
+#curator_page p{
+padding: 10px;
+text-align: left;
+font-style: normal;
+line-height: 1.5;
+text-shadow: 1px 2px 6px rgb(255, 252, 252);
+font-size: 14px;
+color: rgb(0, 0, 0);
+font-weight: 400;
+}
+
+#curator_page h2{
+	
+padding: 10px 10px 0px 10px;
+text-align: center;
+font-style: normal;
+line-height: 1.5;
+text-shadow: 1px 2px 6px rgb(255, 252, 252);
+font-size: 16px;
+color: rgb(0, 0, 0);
+font-weight: 400;
+}
+
+#curator_page .view{
+	border: 1px solid rgb(81, 118, 160);
+	-moz-box-shadow: 1px 8px 0px rgb(68, 119, 179);
+	-webkit-box-shadow: 1px 8px 0px rgb(68, 119, 179);
+	box-shadow: 1px 8px 0px rgb(68, 119, 179);
+	background-color: #6295CF;
+}
+
+#curator_task{	
+	margin-top: 8%;
+}
+#curator_task ul{
+	display: table;
+	text-align: center;
+	margin: 0px auto;
+}
+
+#curator_task li{
+	width: 350px;
+	margin: 0px auto;
+}
+
+#task_category{
+	margin: 40px auto;
+	float: none;
+}
+
+#curator_task p{
+	color: rgb(255, 255, 255);
+	padding: 25px 10px 25px 10px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	-moz-box-shadow: 0px 0px 0px rgb(68, 119, 179);
+	-webkit-box-shadow: 0px 0px 0px rgb(68, 119, 179);
+	box-shadow: 0px 0px 0px rgb(68, 119, 179);
+
+}
+
+#curator_help{
+	float: none;
+	margin: 11% auto 0px auto;
+}
+#curator_help p{
+	padding-top: 50px;
+	text-align: left;
+	line-height: 16px;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	color: rgb(218, 218, 218);
+	text-shadow: 0px 1px 1px rgb(0,0,0);
+}
+
+/****** Panoroma Page **************/
+#list_panorama_page_content{
+	margin-top: 40px;
+	padding: 20px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+#panorama_list{
+	margin-top: 25px;
+}
+#panorama_list li{
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+font-size: 14px;
+padding-left: 20px;
+font-family: 'Roboto', sans-serif;
+line-height: 45px;
+color: rgb(255, 255, 255);
+margin: 12px 5px;
+height: 45px;
+background-color: rgb(80, 129, 184);
+border-radius: 5px;
+box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-moz-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-webkit-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+}
+
+#panorama_list span{
+	float: right;
+	padding-right: 20px;
+}
+
+.instruction_text{
+	color: white;
+	font-size: 14px;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	padding: 10px 0px 20px 0px;
+}
+
+#panorama_poi_list li{
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+line-height: 45px;
+color: rgb(255, 255, 255);
+margin: 12px 5px;
+height: 45px;
+background-color: rgb(80, 129, 184);
+border-radius: 5px;
+box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-moz-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-webkit-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+}
+
+#edit_panorama_poi_title{
+	color: white;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+
+.panorama_poi_form{
+	margin-top: 40px;
+padding: 25px !important;
+border-radius: 8px;
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+background-color: rgba(255, 255, 255, 0.1);
+}
+/************** Add Panorama *********/
+.pano_panel{
+	
+	margin-bottom: 40px;
+	margin-top: 40px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.pano_input{
+margin: 10px auto;
+float: none;
+color: white;
+}
+#pano_img_guid{
+	float: left;
+	position: absolute;
+	width: 160px;
+}
+
+#pano_img_guid p{
+	text-align: left;
+	line-height: 16px;
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 1px 1px rgb(0,0,0);
+}
+#upload_pano_img{
+	float: right;	
+}
+#new_pano_info{
+	margin-top: 340px;
+}
+
+#upload_cube_img{
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+	color: rgb(218, 218, 218);
+	text-shadow: 0px 1px 1px rgb(0,0,0);
+}
+
+#panorama_poi_list p{
+	text-shadow: 0px 1px 0px rgb(5, 5, 5);
+	color: white;
+	font-size: 14px;
+}
+
+/**************** Update and preview panorama ****************/
+.panorama_form{
+float: left;
+width: 25%;
+left: 20px;
+position: absolute;
+}
+
+#skybox_pano{
+margin-top: 35px;
+left: 32%;
+position: absolute;
+}
+
+#panorama_poi_list{
+width: 70%;
+left: 20px;
+position: absolute;
+top: 900px;
+}
+
+#edit_panorama_page{
+	min-height: 2048px !important;
+}
+
+#panorama_poi_list, .panorama_form{
+	margin-top: 20px;
+	padding: 25px !important;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#panorama_control_btn{
+	padding-top: 20px;
+	text-align: center;
+}
+
+.pano_btn{
+	margin-left: 10px;
+}
+/********* Tour widget************************/
+.list_tour_box{
+	margin-top: 40px;
+	padding: 25px !important;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#tour_list li{
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+font-size: 14px;
+padding-left: 20px;
+font-family: 'Roboto', sans-serif;
+line-height: 45px;
+color: rgb(255, 255, 255);
+margin: 12px 5px;
+height: 45px;
+background-color: rgb(80, 129, 184);
+border-radius: 5px;
+box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-moz-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+-webkit-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+}
+
+#tour_list span{
+	float: right;
+	padding-right: 20px;
+}
+
+#list_tour_page_add h3{
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	text-shadow: 0px 1px 0px rgb(9, 9, 9);
+}
+
+#list_tour_page_add p, #list_tour_page_content p, #list_tour_panoramas_page_content p, #list_tour_panorama_pois_page_content p, #right_info_panel p{
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-weight: normal;
+	font-size: 14px;
+	text-shadow: 0px 1px 0px rgb(9, 9, 9);
+}
+
+
+#tour_panorama_poi_info_panel{
+	border-radius: 30px;
+	height: 707px;
+	border: 40px solid rgb(250, 250, 250);
+	position: absolute;
+	top: 70px;
+	left: 20px;
+}
+
+#right_info_panel{
+	font-family: 'Roboto', sans-serif;
+	top: 70px;
+	left: 462px;
+	position: absolute;
+	padding: 25px !important;
+	border-radius: 8px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.7), inset 0 0 1px rgba(255,255,255,.42);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tour_panorama_poi_info_panel_data h1{
+	position:absolute;
+	left:90px;
+	font-size:16px;
+}
+
+#content{
+	position:absolute;
+	bottom:50px;
+}
+#scroller p{
+	width:90%;
+	font-size:14px;
+	margin-top: 10px;
+}
+
+#upload_media_panel{
+	border-radius: 8px;
+	padding: 8px;
+	background-color: rgb(235, 235, 235);
+}
+
+#tour_panoramas_list, #tour_panorama_pois_list{
+	margin-top: 25px;
+}
+
+.tour_info_list li{
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	line-height: 45px;
+	color: rgb(255, 255, 255);
+	margin: 12px 5px;
+	height: 45px;
+	background-color: rgb(80, 129, 184);
+	border-radius: 5px;
+	box-shadow: 1px 3px 5px rgb(31, 31, 31);
+	-moz-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+	-webkit-box-shadow: 1px 3px 5px rgb(31, 31, 31);
+}
+
+#list_tour_panoramas_page_content .ui-listview-filter-inset{
+	margin-top: 10px !important;
+}
+
+#list_tour_panorama_pois_page_content .ui-listview-filter-inset{
+	margin-top: 10px !important;
+}
+
+#panorama_pois_label{
+	color: white;
+	text-shadow: 0px 1px 0px rgb(2, 2, 2);
+}
+
+#list_tour_panorama_poi_info_page{
+	min-height: 874px !important;
+}
+

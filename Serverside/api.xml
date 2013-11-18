@@ -83,6 +83,13 @@
 			<action file="api/cleanplate.php"><![CDATA[getDish($_REST["dish"]);]]></action>
 		</get>
 
+		<post>
+			<description><![CDATA[This is how you can create a dish]]></description>
+			<action file="api/cleanplate.php">
+				<![CDATA[addDish($_POST["dish_name"],$_POST["dish_description"],$_POST["dish_price"],$_POST["dish_image_url"]);]]>
+			</action>
+		</post>
+		
 		<command id="randomOtherSameMenu" security="public">
 	        <index>
 	            <description><![CDATA[This is how you can get random other dish on the same menu as the given dish]]></description>

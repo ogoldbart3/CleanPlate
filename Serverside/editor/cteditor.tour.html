@@ -1,0 +1,242 @@
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="list_tour_page">
+	<div data-role='header' data-position='inline' data-theme='d'>
+		<h1>Tour Designer</h1>
+		<a href="#list_option_page" data-direction="reverse" data-icon="back" data-theme="d">Back</a>
+	</div>
+	
+	<div class="container">
+		<div id="list_tour_page_add" class="list_tour_box">
+			<h3>Add a new Tour</h3>
+			<p> To create a new tour, type its name into the Title box. You can also put an optional description in the box labeled Description. Click the Add button to save this tour and add it to the list of tours.</p>
+
+			<p>To go back to the main page, click the Back button in the top left corner of the screen.</p>
+
+			<div id="newTour_info">
+				<textarea id="new_tour_name" rows="1" placeholder="Name"></textarea>
+				<textarea id="new_tour_description" rows="3" placeholder="Description"></textarea>
+				<textarea id="new_tour_price" rows="1" placeholder="Price"></textarea>
+				<textarea id="new_tour_image_url" rows="3" placeholder="Image URL"></textarea>
+				<div id="dropdowngroups">
+					<fieldset data-type="horizontal">
+						<select id="group_select" name="group" data-native-menu="true" data-theme="c" data-overlay-theme="d">
+							<script id="group_option_template" type="text/x-jquery-tmpl">
+								<option value="${dish_id}" class="group_option">[${dish_id}] ${dish_name}</option>
+							</script>
+						</select>
+					</fieldset>
+				</div>
+				<div id="dropdowncollections">
+					<fieldset data-type="horizontal">
+						<select id="collection_select" name="collection" data-native-menu="true" data-theme="c" data-overlay-theme="d">
+							<script id="collection_option_template" type="text/x-jquery-tmpl">
+								<option value="${collection_id}" class="collection_option">[${collection_id}] ${collection_name}</option>
+							</script>
+						</select>
+					</fieldset>
+				</div>
+			</div>
+			
+			<a id="new_tour_button" class="btn btn-primary">Add</a>
+		</div>
+
+
+		<div id="list_tour_page_content" class="list_tour_box" data-role="content">
+			<p>To edit a tour, select it from the list below.</p>
+		</br>
+			<ul id="tour_list" data-role="listview" data-inset="true" data-filter="true" data-theme="c" data-divider-theme="b">
+				<script id="tour_list_row_template" type="text/x-jquery-tmpl">
+					<a href='#list_tour_panoramas_page&tour_id=${dish_id}' data-transition="slide">
+						<li class="tour_list_row" id="tour_${dish_id}">
+							[${dish_id}] ${dish_name}
+							<span>
+			                	<i class="icon-chevron-right icon-white"></i>
+			                </span>
+						</li>
+					</a>
+					
+				</script>
+			</ul>
+		</div>
+	</div>
+	
+	
+</div>
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="list_tour_panoramas_page">
+	<div data-role='header' data-position='inline' data-theme='d'>
+		<h1>List Tour Panoramas</h1>
+		<a href="#list_tour_page" data-direction="reverse" data-icon="back" data-theme="d">Back</a>
+	</div>
+	<div class="container">
+		<div id="list_tour_panoramas_page_content" class="list_tour_box" data-role="content">
+			
+			<p>To add a panorama to this tour, click on the drop down menu to see a list of all the current existing panoramas. Select the panorama and click the Add button to add that panorama to the end of the list. Repeat this until you have the full list of panoramas that you want for this tour. To delete a panorama from the tour, click the x on the right side of that panorama in the list.</p>	
+			<p>To go back to the list of tours, click the Back button in the top left corner of the screen. </p>
+			<fieldset data-type="horizontal">
+				<select id="tour_panorama_remaining_select" name="tour_panorama_remaining" data-native-menu="true" data-theme="c" data-overlay-theme="d">
+					<script id="tour_panorama_remaining_option_template" type="text/x-jquery-tmpl">
+						<option value="${panorama_id}" class="tour_panorama_remaining_option">[${panorama_id}] ${title}</option>
+					</script>
+				</select>
+				<a id='tour_add_panorama_button' class="btn btn-primary">Add</a>
+			</fieldset>
+				
+
+			<ul id="tour_panoramas_list" class="tour_info_list" data-role="listview" data-inset="true" data-filter="true" data-split-icon="delete" data-split-theme="d">
+			<p>To edit the points of interest in a panorama, select it from the list below. </p>
+			<script id="tour_panoramas_list_row_template" type="text/x-jquery-tmpl">
+					<a class="tour_panoramas_list_row_button" href="#list_tour_panorama_pois_page&tour_id=${tour_id}&panorama_id=${panorama_id}" data-transition="slide">
+						<li class="tour_panorama_row">
+							[${panorama_id}] ${title}
+							<a class="tour_panorama_list_row_delete_button"/>
+						</li>
+					</a>
+					
+			</script>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--******************************************************************************************************************************-->
+<div data-role="page" id="list_tour_panorama_pois_page">
+	<div data-role='header' data-position='inline' data-theme='d'>
+		<h1>List Tour Panorama Pois</h1>
+		<a href="#list_tour_panoramas_page" data-direction="reverse" data-icon="back" data-rel="back" data-theme="d">Back</a>
+	</div>
+<div class="container">	
+	<div id="list_tour_panorama_pois_page_content" class="list_tour_box" data-role="content">
+		<p>Click on the drop down menu to reveal a list of POIs that correspond to this panorama. Too add one, select it and click the add button. Repeat this until you have the full list of POIs that you want for this panorama. To delete a POI from the panorama, click the x on the right side of that panorama in the list. 
+		</p>
+
+		<p>To go back to the list of panoramas, click the Back button in the top left corner of the screen.</p>
+		<fieldset data-type="horizontal">
+			<div for="tour_panorama_pois_remaining" id="panorama_pois_label" class="select"></div>
+			<select id="tour_panorama_pois_remaining_select" name="tour_panorama_pois_remaining" data-native-menu="true" data-theme="c" data-overlay-theme="d">
+				<script id="tour_panorama_pois_remaining_option_template" type="text/x-jquery-tmpl">
+					<option value="${poi_id}" class="tour_panorama_pois_remaining_option">[${poi_id}] ${title}</option>
+				</script>
+			</select>
+			<a id='add_poi_button' class="btn btn-primary">Add</a>
+		</fieldset>
+
+		<ul id="tour_panorama_pois_list" class="tour_info_list" data-role="listview" data-inset="true" data-filter="true" data-theme="c" data-divider-theme="b" data-split-icon="delete" data-split-theme="d">
+		<p>To edit the text, images and video in a POI, select it from the list below. </p>
+			<script id="tour_panorama_pois_list_row_template" type="text/x-jquery-tmpl">
+				
+				<a class="tour_panorama_pois_list_row_button" href="#list_tour_panorama_poi_info_page&tour_id=${tour_id}&panorama_id=${panorama_id}&poi_id=${poi_id}">
+					<li class="tour_panorama_pois_row">
+						[${poi_id}] ${title}
+						<a class="tour_panorama_pois_list_row_delete_button"/>
+					</li>
+				</a>
+				
+			</script>
+		</ul>
+	</div>
+</div>
+</div>
+
+<!--******************************************************************************************************************************-->
+
+<div data-role="page" id="list_tour_panorama_poi_info_page">
+	<div data-role='header' data-position='inline' data-theme='d'>
+		<h1>List Tour Panorama Poi Information</h1>
+		<a href="#list_tour_panorama_pois_page" data-direction="reverse" data-icon="back" data-rel="back" data-theme="d">Back</a>
+	</div>
+	
+
+<div id="tour_wrapper">
+	<div id="tour_panorama_poi_info_panel">
+		<div style="position:absolute;" id="pane">
+			<script id="tour_panorama_poi_info_panel_template" type="text/x-jquery-tmpl">
+				<div class="tour_panorama_poi_info_panel_data">
+					<div id="pane_header">
+						<div id="list_tour_panorama_poi_info_title" style="align:center">
+							<img src="assets/tech-logo.png" width="66px" height="66px" id="tech_logo"/>
+							<h1>${title}</h1>
+						</div>
+						
+					</div>
+					<div id="main">
+						<div id="content">
+							<div id="content_title">
+								<p style="font-size:14px;">Introduction</p>
+							</div>
+							<div style="overflow:auto;" id="wrapper">
+								<div style="position:absolute" id="scroller">
+									<br>
+									<center>
+										<img src=${image_url} style="max-width:280px;">
+										<p align="justify">${description}</p>
+									</center>
+								</div>
+							</div> <!--data end-->
+						</div>
+					</div>
+				</div> <!--panel content end-->
+			</script>
+		</div>
+	</div> <!--pane end-->
+
+	
+	<div id="right_info_panel" class="span9">
+		<p>Images and videos can be uploaded into the POI below. Click the Choose File button and select the media item from your saved documents. In the tour, these will be displayed below the text in the side panel.</p>
+		<div data-role="content" data-ajax="false">	
+			<div id="upload_media_panel">
+				<table>
+					<tr>
+						<td>Upload a new media item</td>
+					</tr>
+					<tr>
+						<td class="field"><input type="file" name="media_userFiles[]" id="media_file" class="accept-gif|jpg|png|swf"/></td>
+					</tr>
+					<tr>
+						<td>(File size limit - 1 Mb)</td>
+					</tr>
+				</table>
+				<br/>
+			</div>
+			<br/>
+            <a id="add_media_button" class="btn btn-primary">Add</a>
+		</div>
+
+		<div id="list_tour_panorama_poi_info_page_right" data-role="content">
+			<p>The textbox contains the current information for this POI. You can edit the text directly in the textbox and click the Save button to save the edited information. If you want the original, basic information to appear again, just click on the Default button. A preview of the information will appear on the iPad in the side view panel after you save.</p>
+
+			<p>To go back to the list of POI’s for that panorama, click the Back button in the top left corner of the screen.</p>
+			<ul id="tour_panorama_poi_photos_list" data-role="listview" data-inset="true" data-filter="false" data-theme="c" data-divider-theme="b">
+				<script id="tour_panorama_poi_photos_list_row_template" type="text/x-jquery-tmpl">
+					<li class="tour_panorama_poi_photos_list_row" id="photo_${photo_id}">
+						<img src=${thumbnail_url}><h1>[${media_item_id}] ${base_caption}</h1></img>
+					</li>
+				</script>
+				<li>
+					<fieldset data-type="horizontal">
+						<select id="tour_panorama_poi_tags_available_select" name="tour_panorama_poi_tags_available" data-native-menu="true" data-theme="c" data-overlay-theme="d">
+							<script id="tour_panorama_poi_tags_available_option_template" type="text/x-jquery-tmpl">
+								<option value="${tag_id}" class="tour_panorama_poi_tags_available_option">[${tag_id}] ${tag_name}</option>
+							</script>
+						</select>
+						<a id="tag_filter_button" class="btn btn-primary">Filter</a>
+
+					</fieldset>
+				</li>
+			</ul>
+		</div>
+
+		<div id="tour_panorama_poi_info_description">
+			<script id="tour_panorama_poi_description_template" type="text/x-jquery-tmpl">
+				<div class="tour_panorama_poi_info_description_data" id="poi_${poi_id}_description">
+					<p id=desc_title>Edit Description for ${title}</p>
+					<textarea id="text_box_1" rows="7">${description}</textarea>
+					<a id="default_button" class="btn btn-primary">Default</a>
+					<a id="description_save_button" class="btn btn-success">Save</a>
+					</div>
+			</script>
+		</div>
+	</div>
+</div>
+	
+</div>
+
