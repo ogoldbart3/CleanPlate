@@ -55,4 +55,15 @@
 		echo json_encode($result);
 	}
 
+	function addRestaurantFoodmenu($restaurant_id, $foodmenu_id) {
+		$dbQuery = sprintf("INSERT INTO `restaurant_foodmenus` (`restaurant_id`, `foodmenu_id` ) VALUES ('%s','%s');",
+				mysql_real_escape_string($restaurant_id),
+				mysql_real_escape_string($foodmenu_id));
+		$result = getDBResultRecord($dbQuery);
+		//header('Content-type: application/json');
+		echo json_encode($result);
+
+		
+	}
+
 ?>

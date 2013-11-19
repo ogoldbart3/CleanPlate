@@ -32,6 +32,12 @@
 	            
 	            <action file="api/cleanplate.php"><![CDATA[getRestaurantFoodmenu($_REST["restaurant"],$_REST["restaurant/foodmenu"]);]]></action>
 	        </get>
+
+	        <post>
+                <description><![CDATA[This is how you add a restaurant_foodmenu]]></description>
+                
+                <action file="api/cteditor.php"><![CDATA[addRestaurantFoodmenu($_REST["restaurant"],$_POST["foodmenu_id"]);]]></action>
+            </post>
 	    </command>
 	</command>
 
@@ -70,22 +76,14 @@
 	            
 	            <action file="api/cleanplate.php"><![CDATA[getFoodmenuDish($_REST["foodmenu"],$_REST["foodmenu/dish"]);]]></action>
 	        </get>
+
+	        <post>
+                <description><![CDATA[This is how you add foodmenu_dish]]></description>
+                
+                <action file="api/cteditor.php"><![CDATA[addFoodmenuDish($_REST["foodmenu"],$_POST["dish_id"]);]]></action>
+            </post>
 	    </command>
 	</command>
-
-	<command id="foodmenu_dish" security="public">
-		<description><![CDATA[This simple API lets you add and remove foodmenu_dish]]></description>
-		
-
-		<post>
-			<description><![CDATA[This is how you can create a foodmenudish]]></description>
-			<action file="api/cleanplate.php">
-				<![CDATA[addFoodmenuDish($_POST["foodmenu_id"],$_POST["dish_id"]);]]>
-			</action>
-		</post>
-	
-	</command>
-
 
 	<!--Dishes-->
 	<command id="dish" security="public">
@@ -124,10 +122,38 @@
 	            
 	            <action file="api/cleanplate.php"><![CDATA[getRandomOtherDish($_REST["dish"]);]]></action>
 	        </index>
-	    </command>
+	    </command>	
+	</command>
 
+
+	<command id="restaurant_foodmenu" security="public">
+		<description><![CDATA[This simple API lets you add and remove restaurant_foodmenu]]></description>
+		
+		<post>
+			<description><![CDATA[This is how you can create a restaurant_foodmenu]]></description>
+			<action file="api/cleanplate.php">
+				<![CDATA[addRestaurantFoodmenu($_POST["restaurant_id"],$_POST["foodmenu_id"]);]]>
+			</action>
+		</post>
+	</command>
+
+
+
+	<command id="foodmenu_dish" security="public">
+		<description><![CDATA[This simple API lets you add and remove foodmenu_dish]]></description>
+		
+
+		<post>
+			<description><![CDATA[This is how you can create a foodmenudish]]></description>
+			<action file="api/cleanplate.php">
+				<![CDATA[addFoodmenuDish($_POST["foodmenu_id"],$_POST["dish_id"]);]]>
+			</action>
+		</post>
 	
 	</command>
+
+
+
 
 	<command id="randomDish" security="public">
 	    
@@ -135,10 +161,8 @@
 		
 		<index>
 			<description><![CDATA[This is how you can get a listing of all dishes]]></description>
-			
 			<action file="api/cleanplate.php"><![CDATA[getRandomDish();]]></action>
 		</index>
-	
 	</command>
 	
 

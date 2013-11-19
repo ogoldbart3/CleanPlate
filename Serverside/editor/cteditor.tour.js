@@ -76,7 +76,7 @@ $(function() {
         	}
 		});
 
-		$.ajax({
+		/*$.ajax({
 			url: "api/autolistcollection",
 			dataType: "json",
         	async: false,
@@ -94,7 +94,7 @@ $(function() {
         	    	ajaxError(jqXHR, textStatus, errorThrown);
         	   	}
         	}
-		});
+		});*/
 
 		$('#tour_list').listview('refresh');
 	});
@@ -130,22 +130,17 @@ $(function() {
 	
 	 $('#new_tour_button').bind('click', function() {
 		console.log("Add Tour Button");
-		//var totalString = $('#')
 
-		//var name = $('#new_tour_name').val();
-		//var description = $('#new_tour_description').val();
-		//var price = $('#new_tour_price').val();
-		//var imageURL = $('#new_tour_image_url').val();
-		//var group = $('#group_select').val();
-		//var collection = $('#collection_select').val();
 
 		var menuStart = $('#menu_start_time').value;
-		var menuEnd = $('#menu_end_time').value;
+		var menuEnd =  $('#menu_end_time').value;
 		var menuDays = $('#menu_days').value;
 		
 		var menuID;
 		var dishID;
+		var restaurantID = $('#group_select').val();
 
+		//adding foodmenu
 		$.ajax({
 			url: "api/foodmenu/",
 			dataType: "json",
@@ -163,7 +158,23 @@ $(function() {
 			type: 'POST',
 			error: ajaxError
 		});
-		//console.log(test);
+
+		//adding restaurant_foodmenu
+		$.ajax({
+			url: "api/restaurant_foodmenu/",
+			dataType: "json",
+			data: {
+				'restaurant_id' : restaurantID,
+				'foodmenu_id': menuID
+			},
+			async: false,
+			success: function(data, textStatus, jqXHR) {
+				console.log(data);
+			},
+			type: 'POST',
+			error: ajaxError
+		});
+
 
 		$(".new_tour_entry").each(function(){
         	//this.value = this.value.replace("AFFURL",producturl);
@@ -177,12 +188,14 @@ $(function() {
         	totalString = totalString.slice(totalString.indexOf(",") + 2, totalString.length);
 
         	var price = totalString.substring(0, totalString.indexOf(","));
+
         	totalString = totalString.slice(totalString.indexOf(",") + 2, totalString.length);
 
         	var imageURL = totalString;
 
         	console.log(name + "-" + description + "-" + price + "-" + imageURL);
 
+        	//adding dish
         	$.ajax({
 				url: "api/dish/",
 				dataType: "json",
@@ -202,46 +215,22 @@ $(function() {
 				error: ajaxError
 			});
 
+        	//adding foodmenudish
 			$.ajax({
 				url: "api/foodmenu_dish/",
 				dataType: "json",
 				data: {
-					'foodmenu_id': menuID,
+					'foodmenu_id' : menuID,
 					'dish_id': dishID
 				},
 				async: false,
 				success: function(data, textStatus, jqXHR) {
 					console.log(data);
-					//refreshTourList();
 				},
 				type: 'POST',
 				error: ajaxError
 			});
-
-
-
-
     	});
-
-
-
-		/*$.ajax({
-			url: "api/dish/",
-			dataType: "json",
-			data: {
-				'dish_name': name,
-				'dish_description': description,
-				'dish_price': price,
-				'dish_image_url': imageURL
-			},
-			async: false,
-			success: function(data, textStatus, jqXHR) {
-				console.log(data);
-				refreshTourList();
-			},
-			type: 'POST',
-			error: ajaxError
-		});*/
 	});
 
 

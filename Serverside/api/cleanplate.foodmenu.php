@@ -75,14 +75,15 @@
 	}
 
 	function addFoodmenuDish($foodmenu_id, $dish_id) {
-		$dbQuery = sprintf("INSERT INTO `foodmenu_dishes` (`foodmenu_id`,`dish_id` ) VALUES ('%s','%s')",
+		$dbQuery = sprintf("INSERT INTO `foodmenu_dishes` (`foodmenu_id`,`dish_id` ) VALUES ('%s','%s');",
 			mysql_real_escape_string($foodmenu_id),
 			mysql_real_escape_string($dish_id)
 		);
-		$result = getDBResultInserted($dbQuery,'foodmenu_id');
+		$result = getDBResultInserted($dbQuery,'restaurant_id');
 		//header("Content-type: application/json");
 		echo json_encode($result);
 	}
+	
 
 
 ?>
