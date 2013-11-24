@@ -26,7 +26,13 @@ import android.widget.TextView;
 public class DishActivity extends Activity {
 
 	//String storing the dish_id of the currently displaying dish
+	String currentRestaurantID;
+	String currentFoodmenuID;
 	String currentDishID;
+	
+	String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/";
+	String urlAddon;
+    
 	
 	//ArrayList acting as the history for the app
 	//New dishes are added to the head of the arrayList
@@ -38,63 +44,34 @@ public class DishActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    
-		//Takes in data to go directly into a saved point
-		//from minimization
 		super.onCreate(savedInstanceState);
-		
-		//Reads in the XML file for the activity layout
-        setContentView(R.layout.activity_dish);
+	    setContentView(R.layout.activity_dish);
         
-        //Manually makes the app slide in from right
-    //	overridePendingTransition(R.anim.dish_anim_in,R.anim.dish_anim_out);
-		
-        //Intents are like bundles containing app data
-        //that can be passed between activities
-        //Here we are pulling the intent passed into the
-        //current activity we are in, so we can get the 
-        //data the last activity is giving to us
         Intent oldIntent = getIntent();
-        Boolean goDirectly = oldIntent.getExtras().getBoolean("goDirectly");
-        if ( goDirectly ) {
-            overridePendingTransition(R.anim.main_anim_in,R.anim.main_anim_out);
-        } else if ( !goDirectly ) {
-            overridePendingTransition(R.anim.dish_anim_in,R.anim.dish_anim_out);
-        }
         
-        //here we are pulling data using getExtras() and
-        //setting their current variables in this activity
-        //to what the old activity had "saved" them as
-        String oldDishID = (String) oldIntent.getStringExtra("dishID");
-        Boolean sameMenuCheck = oldIntent.getExtras().getBoolean("sameMenu");
-		arrayList = oldIntent.getCharSequenceArrayListExtra("arrayList");
-		
-		Log.v("testcat", "testcat " + oldDishID + ", " + arrayList.toString());
+        arrayList = oldIntent.getCharSequenceArrayListExtra("arrayList");        
+        Log.v("testcat", "testcat " + arrayList.toString());
         
-        String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/";
-                
-        url += "dish/" + oldDishID;
+    	currentRestaurantID = oldIntent.getExtras().getString("currentRestaurantID");
+    	currentFoodmenuID = oldIntent.getExtras().getString("currentFoodmenuID");
+    	currentDishID = oldIntent.getExtras().getString("currentDishID");
+    	
+        urlAddon = "dish/" + currentDishID;
         
-        if ( goDirectly ) {
-        	
-        }
-        else if ( !goDirectly ) {
-        	url += "/randomOther";
-            if ( sameMenuCheck ) {
-            	url += "SameMenu";
-            }
-            
-        }
+        
 		AsyncHttpClient client = new AsyncHttpClient();
 		
-		client.get( url, new AsyncHttpResponseHandler() {
+		client.get( url + urlAddon, new AsyncHttpResponseHandler() {
 			
 			
 			@Override
 			public void onSuccess(String response) {
 				try {
 					JSONObject jsonRestaurant = new JSONObject(response);
+					
 				    TextView dishID = (TextView)findViewById(R.id.dishID);
 				    TextView dishName = (TextView)findViewById(R.id.dishName);
+				    TextView dishOrder = (TextView)findViewById(R.id.dishOrder);
 				    TextView dishDescription = (TextView)findViewById(R.id.dishDescription);
 				    TextView dishImageURL = (TextView)findViewById(R.id.dishImageURL);	
 					TextView dishPrice = (TextView)findViewById(R.id.dishPrice);
@@ -109,6 +86,12 @@ public class DishActivity extends Activity {
 					    dishName.setText(jsonRestaurant.getString("dish_name"));
 					} catch (JSONException e) {
 					    dishName.setText("Failed");
+					}
+					
+					try {
+					    dishOrder.setText(jsonRestaurant.getString("dish_order"));
+					} catch (JSONException e) {
+					    dishOrder.setText("Failed");
 					}
 				
 					try {
@@ -137,76 +120,154 @@ public class DishActivity extends Activity {
 			}
 		});
 		
-        
-	    // TODO Auto-generated method stub
 	}
 	
 	public void randomDish( View view ) {
 		
-		TextView dishID = (TextView)findViewById(R.id.dishID);
-	    currentDishID = dishID.getText().toString();
-
-	    arrayList.add(0, currentDishID);
-	    
-	    Intent intent = new Intent();
-
-		intent.putExtra("dishID", currentDishID);
-		intent.putExtra("sameMenu", false);
-		intent.putExtra("goDirectly", false);
-		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+		urlAddon = "restaurant/" + currentRestaurantID + "/randomOtherDish/";
 		
-		intent.setClass(DishActivity.this, DishActivity.class);
+		AsyncHttpClient client = new AsyncHttpClient();
 		
+		client.get( url + urlAddon, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(String response) {
+				try {
+					JSONObject jsonDish = new JSONObject(response);
+					
+					try {
+						currentRestaurantID = jsonDish.getString("restaurant_id");
+						currentFoodmenuID = jsonDish.getString("foodmenu_id");
+ 						currentDishID = jsonDish.getString("dish_id");
+ 						
+ 						Intent intent = new Intent();
+ 						
+ 						arrayList.add(0, currentDishID);
+ 						intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+ 						
+ 						intent.putExtra( "currentRestaurantID", currentRestaurantID );
+ 						intent.putExtra( "currentFoodmenuID", currentFoodmenuID );
+ 						intent.putExtra( "currentDishID", currentDishID );
+ 						
+ 						intent.setClass(DishActivity.this, DishActivity.class);
 
-		startActivity(intent);
-		finish();
-
+ 						startActivity(intent);
+ 						finish();
+					} catch (JSONException e) {
+						Log.v("testcat", "testcat failed pulling ID");
+					}
+					
+				} catch (JSONException e) {
+					Log.v("testcat", "testcat failed");
+				}	
+			}
+		});
 	}
 	
-	public void randomDishSameMenu( View view ) {
+	public void aboveDishSameMenu( View view ) {
 		
-		TextView dishID = (TextView)findViewById(R.id.dishID);
-	    currentDishID = dishID.getText().toString();
-
-	    arrayList.add(0, currentDishID);
+		urlAddon = "foodmenu/" + currentFoodmenuID + "/dish/" + currentDishID + "/prev";
 		
-		Intent intent = new Intent();
-
-		intent.putExtra("dishID", currentDishID);
-		intent.putExtra("sameMenu", true);
-		intent.putExtra("goDirectly", false);
-		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+		AsyncHttpClient client = new AsyncHttpClient();
 		
-		intent.setClass(DishActivity.this, DishActivity.class);
+		client.get( url + urlAddon, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(String response) {
+				try {
+					JSONObject jsonDish = new JSONObject(response);
+					
+					try {
+						currentDishID = jsonDish.getString("dish_id");
+ 						
+ 						Intent intent = new Intent();
 
-		startActivity(intent);
-		finish();
+ 						arrayList.remove(0);
+ 						arrayList.add(0,currentDishID);
+ 						intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+ 						
+ 						intent.putExtra( "currentRestaurantID", currentRestaurantID );
+ 						intent.putExtra( "currentFoodmenuID", currentFoodmenuID );
+ 						intent.putExtra( "currentDishID", currentDishID );
+ 						
+ 						intent.setClass(DishActivity.this, DishActivity.class);
 
+ 						startActivity(intent);
+ 						finish();
+					} catch (JSONException e) {
+						Log.v("testcat", "testcat failed pulling ID");
+					}
+					
+				} catch (JSONException e) {
+					Log.v("testcat", "testcat failed");
+				}	
+			}
+		});
+	}
+	
+	public void belowDishSameMenu( View view ) {
+		
+		urlAddon = "foodmenu/" + currentFoodmenuID + "/dish/" + currentDishID + "/next";
+		
+		AsyncHttpClient client = new AsyncHttpClient();
+		
+		client.get( url + urlAddon, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(String response) {
+				try {
+					JSONObject jsonDish = new JSONObject(response);
+					
+					try {
+						currentDishID = jsonDish.getString("dish_id");
+ 						
+ 						Intent intent = new Intent();
+
+ 						arrayList.remove(0);
+ 						arrayList.add(0,currentDishID);
+ 						intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+ 						
+ 						intent.putExtra( "currentRestaurantID", currentRestaurantID );
+ 						intent.putExtra( "currentFoodmenuID", currentFoodmenuID );
+ 						intent.putExtra( "currentDishID", currentDishID );
+ 						
+ 						intent.setClass(DishActivity.this, DishActivity.class);
+
+ 						startActivity(intent);
+ 						finish();
+					} catch (JSONException e) {
+						Log.v("testcat", "testcat failed pulling ID");
+					}
+					
+				} catch (JSONException e) {
+					Log.v("testcat", "testcat failed");
+				}	
+			}
+		});
 	}
 	
 	public void previousDish( View view ) {
 		
-		if ( arrayList.size() == 0 ) {
+		if ( arrayList.size() == 1 ) {
 			Intent intent = new Intent();
 			
 			intent.setClass(DishActivity.this, MainActivity.class);
-
+	
 			startActivity(intent);
 			finish();
 			
 		} else {
-			
-			currentDishID = (String) arrayList.remove(0);
-			
+		
 			Intent intent = new Intent();
-	
-			intent.putExtra("dishID", currentDishID);
-			intent.putExtra("sameMenu", true);
-			intent.putExtra("goDirectly", true);
+
+			arrayList.remove(0);
+			currentDishID = (String) arrayList.get(0);
+				
+			intent.putExtra( "currentDishID", currentDishID );
 			intent.putCharSequenceArrayListExtra("arrayList", arrayList);
 			
 			intent.setClass(DishActivity.this, DishActivity.class);
-	
+		
 			startActivity(intent);
 			finish();
 		}

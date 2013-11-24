@@ -28,12 +28,24 @@ import com.olivergoldbart.cleanplate.R;
 
 public class MainActivity extends Activity {
 
+
+	String currentDishID;
+	String currentFoodmenuID;
+	String currentRestaurantID;
+	
+
+	String url = "http://m3.cip.gatech.edu/d/ogoldbart3/w/cleanplate/c/api/";
+	String urlAddon;
+	
+    ArrayList<CharSequence> arrayList;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         overridePendingTransition(R.anim.main_anim_in,R.anim.main_anim_out);
 		
+        arrayList = new ArrayList<CharSequence>();
 	} 
 	
 
@@ -46,26 +58,44 @@ public class MainActivity extends Activity {
     
 	
 	public void randomDish( View view ) {
-		
-		
-	    Stack<String> stack = new Stack<String>();
-		stack.add("test");
-		stack.add("test2");
-		
-	    ArrayList<CharSequence> arrayList = new ArrayList<CharSequence>();
 	    
-		Intent intent = new Intent();
-
-		intent.putExtra("dishID", "1");
-		intent.putExtra("sameMenu", false);
-		intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+	    urlAddon = "restaurant/0/randomOtherDish/";
 		
-		intent.setClass(MainActivity.this, DishActivity.class);
+		AsyncHttpClient client = new AsyncHttpClient();
+		
+		client.get( url + urlAddon, new AsyncHttpResponseHandler() {
+			
+			@Override
+			public void onSuccess(String response) {
+				try {
+					JSONObject jsonDish = new JSONObject(response);
+					
+					try {
+						currentRestaurantID = jsonDish.getString("restaurant_id");
+						currentFoodmenuID = jsonDish.getString("foodmenu_id");
+ 						currentDishID = jsonDish.getString("dish_id");
+ 						
+ 						Intent intent = new Intent();
+ 						
+ 						arrayList.add(0, currentDishID);
+ 						intent.putCharSequenceArrayListExtra("arrayList", arrayList);
+ 						
+ 						intent.putExtra( "currentRestaurantID", currentRestaurantID );
+ 						intent.putExtra( "currentFoodmenuID", currentFoodmenuID );
+ 						intent.putExtra( "currentDishID", currentDishID );
+ 						
+ 						intent.setClass(MainActivity.this, DishActivity.class);
 
-
-        startActivity(intent);
-        finish();
-
+ 						startActivity(intent);
+ 						finish();
+					} catch (JSONException e) {
+						Log.v("testcat", "testcat failed pulling ID");
+					}
+					
+				} catch (JSONException e) {
+					Log.v("testcat", "testcat failed");
+				}	
+			}
+		});
     }
-	
 }

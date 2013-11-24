@@ -7,5 +7,7 @@
     <string name="random_dish_button">New random dish</string>
     <string name="random_dish_same_menu_button">New dish from menu</string>
     <string name="prev_dish">Previous Dish</string>
+    <string name="above_dish_same_menu_button">Above Dish</string>
+    <string name="below_dish_same_menu_button">Below Dish</string>
 
 </resources>

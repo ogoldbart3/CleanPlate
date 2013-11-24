@@ -11,8 +11,12 @@ public final class R {
     public static final class anim {
         public static final int dish_anim_in=0x7f040000;
         public static final int dish_anim_out=0x7f040001;
-        public static final int main_anim_in=0x7f040002;
-        public static final int main_anim_out=0x7f040003;
+        public static final int dish_menu_anim_in=0x7f040002;
+        public static final int dish_menu_anim_out=0x7f040003;
+        public static final int dish_menu_back_anim_in=0x7f040004;
+        public static final int dish_menu_back_anim_out=0x7f040005;
+        public static final int main_anim_in=0x7f040006;
+        public static final int main_anim_out=0x7f040007;
     }
     public static final class attr {
     }
@@ -31,18 +35,22 @@ public final class R {
         public static final int parch=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000b;
-        public static final int button=0x7f09000a;
-        public static final int button1=0x7f090000;
-        public static final int button2=0x7f090006;
-        public static final int button3=0x7f090007;
-        public static final int container=0x7f090009;
-        public static final int dishDescription=0x7f090003;
-        public static final int dishID=0x7f090001;
-        public static final int dishImageURL=0x7f090004;
-        public static final int dishName=0x7f090002;
-        public static final int dishPrice=0x7f090005;
-        public static final int imageView1=0x7f090008;
+        public static final int RelativeLayout1=0x7f090000;
+        public static final int action_settings=0x7f09000f;
+        public static final int button=0x7f09000e;
+        public static final int button1=0x7f090003;
+        public static final int button2=0x7f090004;
+        public static final int button3=0x7f090005;
+        public static final int button4=0x7f090006;
+        public static final int container=0x7f09000d;
+        public static final int dishDescription=0x7f09000a;
+        public static final int dishID=0x7f090007;
+        public static final int dishImageURL=0x7f09000b;
+        public static final int dishName=0x7f090008;
+        public static final int dishOrder=0x7f090009;
+        public static final int dishPrice=0x7f09000c;
+        public static final int imageView1=0x7f090001;
+        public static final int relativeLayout2=0x7f090002;
     }
     public static final class layout {
         public static final int activity_dish=0x7f030000;
@@ -52,8 +60,10 @@ public final class R {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int above_dish_same_menu_button=0x7f060006;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int below_dish_same_menu_button=0x7f060007;
         public static final int hello_world=0x7f060002;
         public static final int prev_dish=0x7f060005;
         public static final int random_dish_button=0x7f060003;
