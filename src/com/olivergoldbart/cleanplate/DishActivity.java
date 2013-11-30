@@ -69,11 +69,13 @@ public class DishActivity extends Activity {
 				try {
 					JSONObject jsonRestaurant = new JSONObject(response);
 					
+					//This line of fake code
+					
 				    TextView dishID = (TextView)findViewById(R.id.dishID);
 				    TextView dishName = (TextView)findViewById(R.id.dishName);
 				    TextView dishOrder = (TextView)findViewById(R.id.dishOrder);
 				    TextView dishDescription = (TextView)findViewById(R.id.dishDescription);
-				    TextView dishImageURL = (TextView)findViewById(R.id.dishImageURL);	
+				    TextView dishImageURL = (TextView)findViewById(R.id.dishImageURL);
 					TextView dishPrice = (TextView)findViewById(R.id.dishPrice);
 					
 					try {
